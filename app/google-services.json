@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1032085750500",
+    "firebase_url": "https://anirecipe-62757-default-rtdb.firebaseio.com",
+    "project_id": "anirecipe-62757",
+    "storage_bucket": "anirecipe-62757.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032085750500:android:1281cdc6a388b7af88a2f1",
+        "android_client_info": {
+          "package_name": "ru.dan1l0s.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032085750500-0bscsdd61pn2g8tpcqjms9ehi9dv64cs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnQILPMsrggu5CKZ20X_3zbBUDAekGA6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032085750500-0bscsdd61pn2g8tpcqjms9ehi9dv64cs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
