@@ -1,6 +1,8 @@
 package ru.dan1l0s.project.recipe;
 
 public class Recipe {
+    private int id;
+    private String name;
     private String title;
     private String source;
     private String cooking_time;
@@ -10,13 +12,32 @@ public class Recipe {
     private String instruction;
     private String image_link;
 
-    public Recipe(String title, String source, String cooking_time, String ingredients, String ingredients_short, String image_link) {
+    public Recipe(){}
+
+    public Recipe(String name, String title, String source, String cooking_time, String ingredients, String ingredients_short, String image_link) {
+        this.name = name;
         this.title = title;
         this.source = source;
         this.cooking_time = cooking_time;
         this.ingredients = ingredients;
         this.ingredients_short = ingredients_short;
         this.image_link = image_link;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTitle() {

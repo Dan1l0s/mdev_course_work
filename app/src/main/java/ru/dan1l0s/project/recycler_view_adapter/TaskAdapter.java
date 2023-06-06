@@ -1,7 +1,6 @@
 package ru.dan1l0s.project.recycler_view_adapter;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 import ru.dan1l0s.project.Constants;
 import ru.dan1l0s.project.MainActivity;
 import ru.dan1l0s.project.R;
 import ru.dan1l0s.project.task.Task;
 
 /** Adapter class for RecyclerView */
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
   private OnTaskListener onTaskListener;
   private MainActivity activity;
@@ -30,8 +29,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
   private ImageView deleteImage;
 
   /** Adapter default constructor */
-  public Adapter(MainActivity activity, List<Task> list,
-                 OnTaskListener onTaskListener) {
+  public TaskAdapter(MainActivity activity, List<Task> list,
+                     OnTaskListener onTaskListener) {
     this.onTaskListener = onTaskListener;
     this.list = list;
     this.activity = activity;
