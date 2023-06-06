@@ -29,18 +29,6 @@
         android:nestedScrollingEnabled="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/dark_red"
-        android:contentDescription="@string/content_desc"
-        android:src="@drawable/ic_baseline_add" />
-
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"

@@ -39,7 +39,6 @@ public class MainActivity
   private List<Task> list;
 
   private DatabaseReference database;
-  private FloatingActionButton floatingActionButton;
 
   private FirebaseAuth mAuth;
   private Button btnLogout;
@@ -64,7 +63,6 @@ public class MainActivity
     }
 
     ListRecyclerView = findViewById(R.id.listRecyclerView);
-    floatingActionButton = findViewById(R.id.floating_action_button);
 
     Objects.requireNonNull(getSupportActionBar()).hide();
     database =
@@ -75,14 +73,6 @@ public class MainActivity
 
     getDataFromDB();
     initialisation();
-    floatingActionButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-
-        Intent intent = new Intent(MainActivity.this, AddTask.class);
-        startActivityForResult(intent, 0);
-      }
-    });
 
     btnLogout = findViewById(R.id.logoutButton);
     btnLogout.setOnClickListener(v -> {
