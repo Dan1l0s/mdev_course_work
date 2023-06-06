@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/cardLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <View
+            android:id="@+id/card"
+            android:layout_width="336dp"
+            android:layout_height="162dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/card_shape" />
+
+        <TextView
+            android:id="@+id/recipe_ingredients"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="100dp"
+            android:text="Основные ингредиенты: яйцо куриное — 3 шт, жирные сливки — 1 ст.л., сливочное масло — 20 гр, петрушка — 1/3 пучка"
+            android:textColor="@color/card_side_text"
+            android:textSize="30px" />
+
+
+        <ImageView
+            android:id="@+id/recipe_image"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/image_1" />
+
+        <TextView
+            android:id="@+id/recipe_title"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/recipe_title"
+            android:textColor="@color/card_text_color"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recipe_source"
+            android:layout_alignStart="@id/recipe_source"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/timer_icon_new" />
+
+        <TextView
+            android:id="@+id/recipe_cooking_time"
+            android:layout_width="180dp"
+            android:layout_height="22dp"
+            android:layout_below="@+id/recipe_source"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/timer"
+            android:text="@string/cooking_time"
+            android:textColor="@color/card_text_color"
+            android:textSize="30px" />
+
+        <Button
+            android:id="@+id/details_button"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/recipe_cooking_time"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/recipe_ingredients"
+            android:background="@drawable/button"
+            android:backgroundTint="@color/primary_orange"
+            android:text="@string/recipe_details"
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/recipe_source"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recipe_title"
+            android:layout_marginStart="100dp"
+            android:text="@string/source_text"
+            android:textColor="@color/card_text_color"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/recipe_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/recipe_title"
+            android:src="@drawable/baseline_favorite_border_24" />
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
