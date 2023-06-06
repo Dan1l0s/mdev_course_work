@@ -36,10 +36,7 @@ public class LoadingActivity extends AppCompatActivity {
             .getInstance(Constants.DATABASE_LINK)
             .getReference(Constants.RECIPES_KEY);
     Intent intent = new Intent(LoadingActivity.this, MainActivity.class);
-//    getFromDB();
-//    Log.w("APP", String.valueOf(list));
-//    Log.w("APP", String.valueOf((Serializable)list));
-//    intent.putExtra("list", (Serializable) list);
+    getFromDB();
     new Handler().postDelayed(new Runnable() {
       @Override
       public void run() {
