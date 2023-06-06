@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -145,6 +146,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         holder.ingredients.setTextSize(12);
 
         holder.details_button.setTextSize(11);
+
+        Glide.with(activity).load(list.get(position).getImage_link()).into(holder.photoImage);
 
         user_database.child(item.getName()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
