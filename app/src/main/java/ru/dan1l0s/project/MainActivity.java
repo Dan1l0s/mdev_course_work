@@ -1,6 +1,5 @@
 package ru.dan1l0s.project;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,25 +7,25 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 import ru.dan1l0s.project.recipe.Recipe;
+import ru.dan1l0s.project.recipe.RecipePage;
 import ru.dan1l0s.project.recycler_view_adapter.RecipeAdapter;
 
 /** MainActivity class, where the list itself is located */
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
   private List<Recipe> list;
 
   private DatabaseReference database;
+  private DatabaseReference user_database;
 
   private FirebaseAuth mAuth;
   private Button btnLogout;
@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
         FirebaseDatabase
             .getInstance(Constants.DATABASE_LINK)
             .getReference(Constants.RECIPES_KEY);
+
+    user_database = FirebaseDatabase.getInstance(Constants.DATABASE_LINK)
+                    .getReference(Constants.USERS_KEY).child(Constants.USER_UID);
 
     initialisation();
     getDataFromDB();
@@ -101,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
                 .show();
             continue;
           }
+
           list.add(recipe);
         }
         recipeAdapter.notifyDataSetChanged();
@@ -129,12 +133,35 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
   @Override
   public void onButtonClick(int pos) {
     Log.i("APP", "OnButton");
-    getDataFromDB();
+    Recipe recipe = list.get(pos);
+    Intent intent = new Intent(MainActivity.this, RecipePage.class);
+    intent.putExtra("name", recipe.getName());
+    startActivity(intent);
+//    getDataFromDB();
   }
 
   @Override
   public void onFavoriteClick(int pos) {
     Log.i("APP", "OnFavorite");
-    getDataFromDB();
+    Recipe item = list.get(pos);
+    user_database.child(item.getName()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+      @Override
+      public void onComplete(@NonNull Task<DataSnapshot> task) {
+        if (task.isSuccessful())
+        {
+          if (task.getResult().exists())
+          {
+            user_database.child(item.getName()).setValue(null);
+            getDataFromDB();
+          }
+          else
+          {
+            user_database.child(item.getName()).setValue(true);
+            getDataFromDB();
+          }
+        }
+      }
+    });
   }
+
 }
