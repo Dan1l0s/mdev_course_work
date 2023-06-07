@@ -54,23 +54,15 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
     if (user == null) {
       finish();
       startActivity(new Intent(MainActivity.this, LoginActivity.class));
-    } else {
+    }
+    else {
       Constants.USER_UID = user.getUid();
-      textView.setText(getString(R.string.username_show) + " " +
-                       mAuth.getCurrentUser().getEmail());
+      textView.setText(getString(R.string.username_show) + " " + mAuth.getCurrentUser().getEmail());
     }
 
     ListRecyclerView = findViewById(R.id.listRecyclerView);
 
     Objects.requireNonNull(getSupportActionBar()).hide();
-    database =
-        FirebaseDatabase
-            .getInstance(Constants.DATABASE_LINK)
-            .getReference(Constants.RECIPES_KEY);
-
-    user_database = FirebaseDatabase.getInstance(Constants.DATABASE_LINK)
-                    .getReference(Constants.USERS_KEY).child(Constants.USER_UID);
-
     initialisation();
     getDataFromDB();
 
@@ -78,6 +70,30 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
     btnLogout.setOnClickListener(v -> {
       mAuth.signOut();
       startActivity(new Intent(MainActivity.this, LoginActivity.class));
+    });
+
+    user_database.addValueEventListener(new ValueEventListener() {
+      @Override
+      public void onDataChange(@NonNull DataSnapshot snapshot) {
+        getDataFromDB();
+      }
+
+      @Override
+      public void onCancelled(@NonNull DatabaseError error) {
+
+      }
+    });
+
+    database.addValueEventListener(new ValueEventListener() {
+      @Override
+      public void onDataChange(@NonNull DataSnapshot snapshot) {
+        getDataFromDB();
+      }
+
+      @Override
+      public void onCancelled(@NonNull DatabaseError error) {
+
+      }
     });
   }
 
@@ -122,6 +138,14 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
     list = new ArrayList<Recipe>();
     recipeAdapter = new RecipeAdapter(this, list, this);
     ListRecyclerView.setAdapter(recipeAdapter);
+    database =
+            FirebaseDatabase
+                    .getInstance(Constants.DATABASE_LINK)
+                    .getReference(Constants.RECIPES_KEY);
+
+    user_database = FirebaseDatabase.getInstance(Constants.DATABASE_LINK)
+            .getReference(Constants.USERS_KEY).child(Constants.USER_UID);
+
   }
 
   @Override
@@ -137,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
     Intent intent = new Intent(MainActivity.this, RecipePage.class);
     intent.putExtra("name", recipe.getName());
     startActivity(intent);
-//    getDataFromDB();
+    getDataFromDB();
   }
 
   @Override

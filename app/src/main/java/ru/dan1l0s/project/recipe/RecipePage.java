@@ -6,6 +6,7 @@ import android.speech.RecognitionService;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -68,6 +69,8 @@ public class RecipePage extends AppCompatActivity {
         ingredients = findViewById(R.id.recipe_page_ingredients);
         instruction = findViewById(R.id.recipe_page_instruction);
 
+        instruction.setMovementMethod(new ScrollingMovementMethod());
+
         recipe_image = findViewById(R.id.recipe_page_image);
 
         favorites = findViewById(R.id.recipe_page_favorite);
@@ -76,15 +79,13 @@ public class RecipePage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 recipe = snapshot.getValue(Recipe.class);
-                title.setText(recipe.getTitle());
-                source.setText(recipe.getSource());
-                cooking_time.setText(recipe.getCooking_time());
-                ingredients.setText(recipe.getIngredients());
-                instruction.setText(recipe.getInstruction());
+                title.setText(recipe.getTitle().replace("\\n", "\n"));
+                source.setText(recipe.getSource().replace("\\n", "\n"));
+                cooking_time.setText(recipe.getCooking_time().replace("\\n", "\n"));
+                ingredients.setText(recipe.getIngredients().replace("\\n", "\n"));
+                instruction.setText(recipe.getInstruction().replace("\\n", "\n"));
 
                 Glide.with(RecipePage.this).load(recipe.getImage_link()).into(recipe_image);
-
-
                 user_database.child(recipe.getName()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {

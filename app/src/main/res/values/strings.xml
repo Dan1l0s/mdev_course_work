@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ToDo List</string>
+    <string name="app_name">AniRecipe</string>
     <string name="task_name_hint">Task name</string>
     <string name="task_desc_hint">Task description</string>
     <string name="task_date_hint">Deadline (ex. 12/20/2022)</string>

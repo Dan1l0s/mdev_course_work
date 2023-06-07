@@ -10,20 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
-            android:name=".task.AddTask"
-            android:exported="false" />
+            android:name=".LoginActivity"/>
         <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
+            android:name=".SignUpActivity"/>
         <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".task.UpdateTask"
-            android:exported="false" />
-        <activity
-            android:name=".recipe.RecipePage"
-            android:exported="false" />
+            android:name=".recipe.RecipePage"/>
         <activity
             android:name=".LoadingActivity"
             android:exported="true">
@@ -33,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
