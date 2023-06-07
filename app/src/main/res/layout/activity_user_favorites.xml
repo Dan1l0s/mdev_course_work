@@ -6,17 +6,17 @@
 
     <TextView
         android:id="@+id/userTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/listRecyclerView"
+        android:layout_centerInParent="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="10dp"
-        android:layout_toStartOf="@id/user_favorites_image"
+        android:layout_toStartOf="@+id/logoutButton"
         android:text="@string/username_show"
         android:textColor="@color/black"
-        android:textSize="18dp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform" />
 
@@ -24,23 +24,24 @@
         android:id="@+id/listRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/userTitle"
+        android:layout_below="@+id/logoutButton"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
         android:nestedScrollingEnabled="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <ImageView
-        android:id="@+id/user_favorites_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:src="@drawable/baseline_person_24"
-        />
-
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="12dp"
+        android:minLines="1"
+        android:maxLines="1"
+        android:textSize="12sp"
+        android:text="@string/logout_button_name" />
 
 
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

@@ -1,6 +1,7 @@
 package ru.dan1l0s.project.recycler_view_adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,13 +31,13 @@ import ru.dan1l0s.project.recipe.Recipe;
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
 
     private OnRecipeListener onRecipeListener;
-    private MainActivity activity;
+    private Activity activity;
     private List<Recipe> list;
     private DatabaseReference database;
     private DatabaseReference user_database;
 
     /** Adapter default constructor */
-    public RecipeAdapter(MainActivity activity, List<Recipe> list,
+    public RecipeAdapter(Activity activity, List<Recipe> list,
                          OnRecipeListener onRecipeListener) {
         this.onRecipeListener = onRecipeListener;
         this.list = list;

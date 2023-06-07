@@ -3,7 +3,9 @@ package ru.dan1l0s.project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
   private DatabaseReference user_database;
 
   private FirebaseAuth mAuth;
-  private Button btnLogout;
+  private ImageView user_favorites;
 
   /** onCreate override to initialize required variables and create screen */
   @Override
@@ -61,16 +63,21 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
     }
 
     ListRecyclerView = findViewById(R.id.listRecyclerView);
+    user_favorites = findViewById(R.id.user_favorites_image);
+
+    user_favorites.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(MainActivity.this, FavoriteActivity.class);
+        startActivity(intent);
+      }
+    });
+
 
     Objects.requireNonNull(getSupportActionBar()).hide();
     initialisation();
     getDataFromDB();
 
-    btnLogout = findViewById(R.id.logoutButton);
-    btnLogout.setOnClickListener(v -> {
-      mAuth.signOut();
-      startActivity(new Intent(MainActivity.this, LoginActivity.class));
-    });
 
     user_database.addValueEventListener(new ValueEventListener() {
       @Override
@@ -103,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
     super.onStart();
   }
 
-  /** Method which requests info from remote database */
+  /** Method which retrieves data from remote database */
   private void getDataFromDB() {
     ValueEventListener vListener = new ValueEventListener() {
       @Override
