@@ -60,6 +60,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
                 .inflate(R.layout.view_recipe, parent, false);
         return new ViewHolder(itemView, onRecipeListener);
     }
+
     /** ViewHolder class */
     public class ViewHolder
             extends RecyclerView.ViewHolder implements View.OnClickListener {

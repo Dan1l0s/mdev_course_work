@@ -63,5 +63,6 @@
 Соль, перец — по вкусу
 Петрушка — 1/3 пучка, для подачи</string>
     <string name="recipe_details">Подробнее</string>
+    <string name="there_are_no_favorite_recipes">В избранном нет рецептов!</string>
     <string name="label_text_string"></string>
 </resources>

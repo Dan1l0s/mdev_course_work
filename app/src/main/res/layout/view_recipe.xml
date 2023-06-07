@@ -79,7 +79,7 @@
 
         <Button
             android:id="@+id/details_button"
-            android:layout_width="100dp"
+            android:layout_width="105dp"
             android:layout_height="40dp"
             android:layout_below="@+id/recipe_cooking_time"
             android:layout_marginStart="10dp"

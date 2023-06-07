@@ -20,6 +20,34 @@
         android:textStyle="bold"
         app:autoSizeTextType="uniform" />
 
+
+    <ImageView
+        android:id="@+id/no_recipes_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/error_image"
+        android:visibility="invisible"
+        />
+
+    <TextView
+        android:id="@+id/no_recipes"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/there_are_no_favorite_recipes"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:autoSizeTextType="uniform" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listRecyclerView"
         android:layout_width="match_parent"

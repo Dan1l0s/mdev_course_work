@@ -156,10 +156,7 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
   }
 
   @Override
-  public void onRecipeClick(int pos) {
-    Log.i("APP", "OnRecipe");
-    getDataFromDB();
-  }
+  public void onRecipeClick(int pos) {}
 
   @Override
   public void onButtonClick(int pos) {
@@ -168,7 +165,6 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
     Intent intent = new Intent(MainActivity.this, RecipePage.class);
     intent.putExtra("name", recipe.getName());
     startActivity(intent);
-    getDataFromDB();
   }
 
   @Override
@@ -183,12 +179,10 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
           if (task.getResult().exists())
           {
             user_database.child(item.getName()).setValue(null);
-            getDataFromDB();
           }
           else
           {
             user_database.child(item.getName()).setValue(true);
-            getDataFromDB();
           }
         }
       }

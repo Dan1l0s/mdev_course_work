@@ -3,7 +3,9 @@ package ru.dan1l0s.project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -11,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,7 +34,8 @@ import ru.dan1l0s.project.recycler_view_adapter.RecipeAdapter;
 /** MainActivity class, where the list itself is located */
 public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter.OnRecipeListener{
     private RecyclerView ListRecyclerView;
-    private TextView textView;
+    private TextView textView, warning_text;
+    private ImageView warning_image;
     private RecipeAdapter recipeAdapter;
     private List<Recipe> list;
 
@@ -49,6 +53,9 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
 
         textView = findViewById(R.id.userTitle);
         mAuth = FirebaseAuth.getInstance();
+
+        warning_text = findViewById(R.id.no_recipes);
+        warning_image = findViewById(R.id.no_recipes_image);
 
         textView.setText(getString(R.string.username_show) + " " + mAuth.getCurrentUser().getEmail());
 
@@ -105,19 +112,28 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
                             if (task.isSuccessful())
                             {
-                                Log.w("APP", task.getResult().getValue()+" ::::: "+task.getResult().getKey()+" :::::: "+recipe.getName());
-
                                 if (task.getResult().getValue() != null)
                                 {
                                     list.add(recipe);
-                                    recipeAdapter.notifyDataSetChanged();
                                 }
-//                                Log.w("APPLICATION", String.valueOf(task.getResult()));
-//                                Log.e("APPLICATION", recipe.getName()+" :::: "+task.getResult().getKey()+" :::: "+((String)recipe.getName()==task.getResult().getKey()));
-//                                if (task.getResult().exists())
-//                                {
-//                                    list.add(recipe);
-//                                }
+
+                                if (list.size() == 0)
+                                {
+                                    warning_text.setVisibility(View.VISIBLE);
+                                    warning_image.setVisibility(View.VISIBLE);
+                                    try {
+                                        Glide.with(FavoriteActivity.this).load(Constants.ERROR_IMAGE).into(warning_image);
+                                    }
+                                    catch(Exception e)
+                                    {
+                                    }
+                                }
+                                else
+                                {
+                                    warning_text.setVisibility(View.INVISIBLE);
+                                    warning_image.setVisibility(View.INVISIBLE);
+                                }
+                                recipeAdapter.notifyDataSetChanged();
                             }
                         }
                     });
@@ -147,24 +163,18 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
     }
 
     @Override
-    public void onRecipeClick(int pos) {
-        Log.i("APP", "OnRecipe");
-//        getDataFromDB();
-    }
+    public void onRecipeClick(int pos) {}
 
     @Override
     public void onButtonClick(int pos) {
-        Log.i("APP", "OnButton");
         Recipe recipe = list.get(pos);
         Intent intent = new Intent(FavoriteActivity.this, RecipePage.class);
         intent.putExtra("name", recipe.getName());
         startActivity(intent);
-        getDataFromDB();
     }
 
     @Override
     public void onFavoriteClick(int pos) {
-        Log.i("APP", "OnFavorite");
         Recipe item = list.get(pos);
         user_database.child(item.getName()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -174,12 +184,10 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
                     if (task.getResult().exists())
                     {
                         user_database.child(item.getName()).setValue(null);
-                        getDataFromDB();
                     }
                     else
                     {
                         user_database.child(item.getName()).setValue(true);
-                        getDataFromDB();
                     }
                 }
             }
