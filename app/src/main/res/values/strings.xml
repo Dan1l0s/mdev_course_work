@@ -18,7 +18,7 @@
     <string name="email_auth_error">E-mail must be verified (check your mailbox)</string>
     <string name="login_succ">Login successful</string>
     <string name="login_error">Login failed, reason: </string>
-    <string name="empty_task_received">Empty task received</string>
+    <string name="empty_task_received">Empty recipe received</string>
     <string name="delete_task_confirm">Are you sure you want to delete task </string>
     <string name="question_sign">\?</string>
     <string name="yes">Yes</string>
@@ -40,6 +40,26 @@
 
     <string name="recipe_title">Омлет-суфле</string>
     <string name="cooking_time">Время приготовления: 20 минут</string>
+    <string name="recipe_instruction">1) Берём яйца, разделяем желтки и белки
+
+2) Белки взбиваем миксером до твёрдых пиков
+
+3) В желтки добавляем соль, сливки и размешиваем
+
+4) Аккуратно добавляем в белки желтки, аккуратно размешиваем
+
+5) На разогретую сководу добавляем сливочное масло и выливаем полученную смесь.
+
+6) Разравниваем её по поверхности сковороды аккуратными движениями, чтобы не повредить структуру суфле
+
+7) Накрываем крышкой и даём дойти на медленном-среднем огне в течение 3-3.5 минут
+
+8) Убираем крышку, складываем омлет и выкладываем на тарелку
+    </string>
+    <string name="recipe_ingredients">Яйца куриные — 2-3 шт (зависит от размера)
+Жирные сливки (33 или 20%) — 1/2 ст.л.
+Соль, перец — по вкусу
+Петрушка — 1/3 пучка, для подачи</string>
     <string name="source_text">Кулинарные поединки Сомы / Food Wars!</string>
     <string name="recipe_details">Details</string>
     <string name="label_text_string">TEXT123</string>

@@ -28,9 +28,6 @@ import java.util.Objects;
 
 import ru.dan1l0s.project.recipe.Recipe;
 import ru.dan1l0s.project.recycler_view_adapter.RecipeAdapter;
-import ru.dan1l0s.project.recycler_view_adapter.TaskAdapter;
-import ru.dan1l0s.project.task.Task;
-import ru.dan1l0s.project.task.UpdateTask;
 
 /** MainActivity class, where the list itself is located */
 public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnRecipeListener{
@@ -106,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
           }
           list.add(recipe);
         }
-//        Collections.sort(list);
         recipeAdapter.notifyDataSetChanged();
       }
 

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    >
+    <RelativeLayout android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/recipe_page_source"
+            android:layout_marginTop="10dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="15dp">
+            <ImageView
+                android:id="@+id/recipe_page_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/image_1" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView android:id="@+id/recipe_page_title"
+            android:textSize="24sp"
+            android:textColor="@color/card_text_color"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="@string/recipe_title"
+            />
+
+        <TextView android:id="@+id/recipe_page_ingredients_title"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/card_text_color"
+            android:layout_below="@id/timer"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ингредиенты"
+            />
+
+        <TextView android:id="@+id/recipe_page_cooking_time"
+            android:textSize="16sp"
+            android:textColor="@color/card_text_color"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/timer"
+            android:layout_marginTop="241dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cooking_time"
+            />
+
+        <TextView android:id="@+id/recipe_page_ingredients"
+            android:textSize="14sp"
+            android:textColor="@color/card_text_color"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/recipe_page_ingredients_title"
+            android:layout_marginTop="5dp"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="@string/recipe_ingredients"
+            />
+
+        <TextView android:id="@+id/recipe_page_instruction_title"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/card_text_color"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/recipe_page_ingredients"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Инструкция"
+            />
+
+        <TextView android:id="@+id/recipe_page_instruction"
+            android:textSize="14sp"
+            android:textColor="@color/card_text_color"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/recipe_page_instruction_title"
+            android:layout_marginTop="10dp"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:text="@string/recipe_instruction"
+            />
+
+        <TextView android:id="@+id/recipe_page_source"
+            android:textSize="12sp"
+            android:textColor="@color/card_text_color"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="54dp"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:text="@string/source_text"
+            />
+
+        <ImageView android:id="@+id/timer"
+            android:src="@drawable/timer_icon_new"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="240dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+
+
+        <ImageView
+            android:id="@+id/recipe_page_favorite"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="350dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/baseline_favorite_border_24" />
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
