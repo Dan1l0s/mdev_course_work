@@ -24,6 +24,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/image_1" />
+
         </androidx.cardview.widget.CardView>
 
         <TextView android:id="@+id/recipe_page_title"
@@ -31,7 +32,7 @@
             android:textColor="@color/card_text_color"
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
-            android:layout_width="260dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:text="@string/recipe_title"
             />
