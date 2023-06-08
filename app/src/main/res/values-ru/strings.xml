@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">AniRecipe</string>
-    <string name="task_name_hint">Название</string>
-    <string name="task_desc_hint">Описание</string>
-    <string name="task_date_hint">Крайний срок выполнения</string>
-    <string name="task_time_hint">Время дедлайна (необяз)</string>
+    <string name="recipe_title_hint">Название</string>
+    <string name="recipe_source_hint">Источник</string>
+    <string name="recipe_ingredients_hint">Ингредиенты</string>
+    <string name="recipe_instruction_hint">Инструкция</string>
+    <string name="recipe_cooking_time_hint">Время приготовления</string>
     <string name="loading_production">PRODUCTION</string>
     <string name="content_desc">если нет этой строки, то у меня ошибка..</string>
     <string name="button_text_save">Сохранить</string>
@@ -12,8 +13,8 @@
     <string name="reg_email_error">Почта не может быть пустой</string>
     <string name="reg_pass_error">Пароль не может быть пустым</string>
     <string name="edit_text_empty">Поле не может быть пустым</string>
-    <string name="save_task_succ">Сохранено</string>
-    <string name="save_task_error">Одно из полей было пропущено</string>
+    <string name="save_recipe_succ">Сохранено</string>
+    <string name="save_recipe_error">Одно из полей было пропущено</string>
     <string name="email_auth_error">Необходимо подтверждение почты - проверьте папку "спам"</string>
     <string name="login_succ">Вход выполнен успешно</string>
     <string name="login_error">Ошибка входа: </string>
@@ -35,7 +36,6 @@
     <string name="already_registered">Уже зарегистрированы?</string>
     <string name="register_here">Зарегистрируйтесь</string>
     <string name="login_here">Войдите в аккаунт</string>
-    <string name="save_task_incorrect_date">Дата должна быть представлена в формате дд/мм/гггг</string>
 
 
     <string name="recipe_title">Омлет-суфле</string>
@@ -64,5 +64,4 @@
 Петрушка — 1/3 пучка, для подачи</string>
     <string name="recipe_details">Подробнее</string>
     <string name="there_are_no_favorite_recipes">В избранном нет рецептов!</string>
-    <string name="label_text_string"></string>
 </resources>

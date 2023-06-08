@@ -17,6 +17,8 @@
         <activity
             android:name=".FavoriteActivity"/>
         <activity
+            android:name=".recipe.AddRecipe" />
+        <activity
             android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>

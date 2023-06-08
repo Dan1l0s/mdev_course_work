@@ -71,5 +71,16 @@
         android:textSize="12sp"
         android:text="@string/logout_button_name" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/primary_orange"
+        android:src="@drawable/ic_baseline_add" />
+
 
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

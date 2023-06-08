@@ -14,7 +14,7 @@ public class Recipe {
 
     public Recipe(){}
 
-    public Recipe(String name, String title, String source, String cooking_time, String ingredients, String ingredients_short, String image_link) {
+    public Recipe(String name, String title, String source, String cooking_time, String ingredients) {
         this.name = name;
         this.title = title;
         this.source = source;

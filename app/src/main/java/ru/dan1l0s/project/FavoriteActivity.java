@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import ru.dan1l0s.project.recipe.AddRecipe;
 import ru.dan1l0s.project.recipe.Recipe;
 import ru.dan1l0s.project.recipe.RecipePage;
 import ru.dan1l0s.project.recycler_view_adapter.RecipeAdapter;
@@ -42,6 +44,8 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
     private DatabaseReference database;
     private DatabaseReference user_database;
 
+    private FloatingActionButton add_recipe_button;
+
     private FirebaseAuth mAuth;
     private Button btnLogout;
 
@@ -56,6 +60,8 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
 
         warning_text = findViewById(R.id.no_recipes);
         warning_image = findViewById(R.id.no_recipes_image);
+
+        add_recipe_button = findViewById(R.id.floating_action_button);
 
         textView.setText(getString(R.string.username_show) + " " + mAuth.getCurrentUser().getEmail());
 
@@ -80,6 +86,14 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        add_recipe_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FavoriteActivity.this, AddRecipe.class);
+                startActivity(intent);
             }
         });
     }
