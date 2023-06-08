@@ -129,7 +129,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
             view.setOnClickListener(this);
         }
-        /** onClick listener for each task */
+        /** onClick listener for each recipe */
         @Override
         public void onClick(View v) {
             onRecipeListener.onRecipeClick(getAbsoluteAdapterPosition());
@@ -178,7 +178,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     /** Helper method */
     public int getItemCount() { return list.size(); }
 
-    /** Interface for handling clicks on each task */
+    /** Interface for handling clicks on each recipe card */
     public interface OnRecipeListener {
         void onRecipeClick(int pos);
         void onButtonClick(int pos);

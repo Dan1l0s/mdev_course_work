@@ -18,8 +18,7 @@
     <string name="email_auth_error">E-mail must be verified (check your mailbox)</string>
     <string name="login_succ">Login successful</string>
     <string name="login_error">Login failed, reason: </string>
-    <string name="empty_task_received">Empty recipe received</string>
-    <string name="delete_task_confirm">Are you sure you want to delete task </string>
+    <string name="empty_recipe_received">Empty recipe received</string>
     <string name="question_sign">\?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>

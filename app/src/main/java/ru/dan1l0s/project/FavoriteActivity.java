@@ -2,7 +2,6 @@ package ru.dan1l0s.project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,7 +17,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,6 +72,7 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
         btnLogout = findViewById(R.id.logoutButton);
         btnLogout.setOnClickListener(v -> {
             mAuth.signOut();
+            finish();
             startActivity(new Intent(FavoriteActivity.this, LoginActivity.class));
         });
 
@@ -116,7 +115,7 @@ public class FavoriteActivity extends AppCompatActivity implements RecipeAdapter
                     if (recipe == null) {
                         Toast
                                 .makeText(FavoriteActivity.this,
-                                        getString(R.string.empty_task_received),
+                                        getString(R.string.empty_recipe_received),
                                         Toast.LENGTH_SHORT)
                                 .show();
                         continue;

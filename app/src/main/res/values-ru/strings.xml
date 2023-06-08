@@ -18,8 +18,7 @@
     <string name="email_auth_error">Необходимо подтверждение почты - проверьте папку "спам"</string>
     <string name="login_succ">Вход выполнен успешно</string>
     <string name="login_error">Ошибка входа: </string>
-    <string name="empty_task_received">Был получен пустой рецепт</string>
-    <string name="delete_task_confirm">Вы точно хотите удалить задание </string>
+    <string name="empty_recipe_received">Был получен пустой рецепт</string>
     <string name="question_sign">\?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>

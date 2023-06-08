@@ -31,7 +31,7 @@ import java.util.Objects;
 import ru.dan1l0s.project.Constants;
 import ru.dan1l0s.project.R;
 
-/** UpdateTask activity */
+/** RecipePage activity */
 public class RecipePage extends AppCompatActivity {
     private TextView title, source, cooking_time, ingredients, instruction;
     private ImageView recipe_image, favorites;

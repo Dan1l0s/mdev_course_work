@@ -9,13 +9,14 @@
     tools:context=".LoginActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_marginTop="150dp">
 
         <TextView
+            android:id="@+id/login_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login_title"
@@ -25,34 +26,11 @@
             android:gravity="center_horizontal"
             android:layout_marginVertical="16dp"/>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etLoginEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/email_hint"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etLoginPass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/pass_hint"
-                android:inputType="textPassword"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        <FrameLayout
+            android:id="@+id/input_fields"
+            android:layout_width="330dp"
+            android:layout_height="170dp"
+            tools:context=".LoginFragment" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
@@ -69,6 +47,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/swap_fragment_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/not_registered"

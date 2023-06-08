@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -122,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements RecipeAdapter.OnR
           if (recipe == null) {
             Toast
                 .makeText(MainActivity.this,
-                          getString(R.string.empty_task_received),
+                          getString(R.string.empty_recipe_received),
                           Toast.LENGTH_SHORT)
                 .show();
             continue;

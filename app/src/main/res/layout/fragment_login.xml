@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="170dp"
+    android:layout_gravity="center_horizontal"
+    tools:context=".LoginFragment">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLoginEmail"
+                android:layout_width="330dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="@string/email_hint"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="330dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLoginPass"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="@string/pass_hint"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+</FrameLayout>
